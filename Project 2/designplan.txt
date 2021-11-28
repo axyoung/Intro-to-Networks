@@ -1,0 +1,15 @@
+the main will send data to rdt_layer to process in iterations
+in each iteration it calls process data 4 times
+once for client channel, once for the client to server channel, once for the server channel, and once for the server to client channel
+
+when processData is called it will call processSend and processReceiveAndSendRespond
+
+processSend will manage the segment sending tasks in a flow window of 15 at a time with data length of 4. this is where i need to create data segments to send, set the seqnum
+
+someone mentioned moving segmentSend=segment() inside a while loop
+
+processRecieve will read in the ack and making new acks and stuffz
+
+will call the send and recieve to pass data and read data that the unreliable channel passes
+
+the recieve will take in a list of segments and we need to send a packet/segment
